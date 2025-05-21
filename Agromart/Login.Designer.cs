@@ -32,9 +32,9 @@
             label1 = new Label();
             label2 = new Label();
             textPassword = new TextBox();
-            loginButton = new Button();
             label3 = new Label();
             checkHide = new CheckBox();
+            buttonLogin = new Button();
             SuspendLayout();
             // 
             // textUsername
@@ -73,15 +73,6 @@
             textPassword.UseSystemPasswordChar = true;
             textPassword.TextChanged += textBox2_TextChanged;
             // 
-            // loginButton
-            // 
-            loginButton.Location = new Point(476, 326);
-            loginButton.Name = "loginButton";
-            loginButton.Size = new Size(167, 45);
-            loginButton.TabIndex = 4;
-            loginButton.Text = "login";
-            loginButton.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -103,19 +94,29 @@
             checkHide.UseVisualStyleBackColor = true;
             checkHide.CheckedChanged += checkHide_CheckedChanged;
             // 
-            // Form1
+            // buttonLogin
+            // 
+            buttonLogin.Location = new Point(476, 330);
+            buttonLogin.Name = "buttonLogin";
+            buttonLogin.Size = new Size(112, 34);
+            buttonLogin.TabIndex = 7;
+            buttonLogin.Text = "Login";
+            buttonLogin.UseVisualStyleBackColor = true;
+            buttonLogin.Click += buttonLogin_Click;
+            // 
+            // Login
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1141, 548);
+            Controls.Add(buttonLogin);
             Controls.Add(checkHide);
             Controls.Add(label3);
-            Controls.Add(loginButton);
             Controls.Add(label2);
             Controls.Add(textPassword);
             Controls.Add(label1);
             Controls.Add(textUsername);
-            Name = "Form1";
+            Name = "Login";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -128,8 +129,8 @@
         private Label label1;
         private Label label2;
         private TextBox textPassword;
-        private Button loginButton;
         private Label label3;
         private CheckBox checkHide;
+        private Button buttonLogin;
     }
 }
