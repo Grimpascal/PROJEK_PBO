@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Agromart
 {
     public partial class formRegister : Form
     {
+        public string db = "Host=localhost;Username=postgres;Password=1;Database=Agromart";
         public formRegister()
         {
             InitializeComponent();
@@ -19,7 +21,90 @@ namespace Agromart
 
         private void Register_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textTelepon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string username = textUser.Text;
+            string password = textPass.Text;
+            string no_telepon = textTelepon.Text;
+            string query = ("INSERT INTO users (username, password,no_telepon) VALUES (@username,@password,@no_telepon)");
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(no_telepon))
+            {
+                textUser.Clear();
+                textPass.Clear();
+                textTelepon.Clear(); 
+                if (string.IsNullOrEmpty(username))
+                {
+                    MessageBox.Show($"Username tidak boleh kosong");
+                    return;
+                }else if (string.IsNullOrEmpty(password))
+                {
+                    MessageBox.Show($"Password tidak boleh kosong");
+                    return;
+                }else if (string.IsNullOrEmpty(no_telepon))
+                {
+                    MessageBox.Show($"Nomor Telepon tidak boleh kosong");
+                    return;
+                }
+            }
+
+            using (NpgsqlConnection conn = new NpgsqlConnection(db))
+            {
+                try
+                {
+                    conn.Open();
+                    using(NpgsqlCommand cmd =  new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("password", password);
+                        cmd.Parameters.AddWithValue("@no_telepon", username);
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Registrasi Berhasil","Notifikasi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            Login login = new Login();
+                            login.Show();
+                            this.Hide();
+                        
+                        }
+                        else
+                        {
+                            {
+                                MessageBox.Show("Registrasi gagal");
+                                textUser.Clear();
+                                textPass.Clear();
+                                textTelepon.Clear();
+                            }
+                        }
+                    }
+                }catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
         }
     }
 }

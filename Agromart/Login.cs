@@ -8,7 +8,6 @@ namespace Agromart
 {
     public partial class Login : Form
     {
-        private NpgsqlConnection conn;
         public Login()
         {
             InitializeComponent();
@@ -91,7 +90,7 @@ namespace Agromart
             }
             else
             {
-                MessageBox.Show("Login Gagal", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Akun tidak ditemukan, silahkan klik tombol register", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textUsername.Clear();
                 textPassword.Clear();
             }
