@@ -1,6 +1,6 @@
 ﻿namespace Agromart
 {
-    partial class Dashboard
+    partial class formRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,15 @@
         {
             SuspendLayout();
             // 
-            // Dashboard
+            // formRegister
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(835, 472);
-            Name = "Dashboard";
-            Text = "Dashboard";
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(910, 383);
+            Name = "formRegister";
+            Text = "Register";
+            Load += Register_Load;
             ResumeLayout(false);
         }
 

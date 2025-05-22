@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Agromart
 {
-    public partial class Dashboard : Form
+    public partial class DashboarUser : Form
     {
-        public Dashboard()
+        public DashboarUser()
         {
             InitializeComponent();
+        }
+
+        private void DashboarUser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

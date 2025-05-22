@@ -35,6 +35,8 @@
             label3 = new Label();
             checkHide = new CheckBox();
             buttonLogin = new Button();
+            linkRegister = new LinkLabel();
+            label4 = new Label();
             SuspendLayout();
             // 
             // textUsername
@@ -96,7 +98,7 @@
             // 
             // buttonLogin
             // 
-            buttonLogin.Location = new Point(476, 330);
+            buttonLogin.Location = new Point(476, 331);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(112, 34);
             buttonLogin.TabIndex = 7;
@@ -104,11 +106,35 @@
             buttonLogin.UseVisualStyleBackColor = true;
             buttonLogin.Click += buttonLogin_Click;
             // 
+            // linkRegister
+            // 
+            linkRegister.AutoSize = true;
+            linkRegister.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            linkRegister.Location = new Point(620, 387);
+            linkRegister.Name = "linkRegister";
+            linkRegister.Size = new Size(58, 19);
+            linkRegister.TabIndex = 8;
+            linkRegister.TabStop = true;
+            linkRegister.Text = "Register";
+            linkRegister.LinkClicked += linkRegister_LinkClicked;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(476, 387);
+            label4.Name = "label4";
+            label4.Size = new Size(138, 19);
+            label4.TabIndex = 9;
+            label4.Text = "Don't Have Account?";
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1141, 548);
+            Controls.Add(label4);
+            Controls.Add(linkRegister);
             Controls.Add(buttonLogin);
             Controls.Add(checkHide);
             Controls.Add(label3);
@@ -132,5 +158,7 @@
         private Label label3;
         private CheckBox checkHide;
         private Button buttonLogin;
+        private LinkLabel linkRegister;
+        private Label label4;
     }
 }

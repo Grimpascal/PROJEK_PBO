@@ -52,7 +52,7 @@ namespace Agromart
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -86,6 +86,8 @@ namespace Agromart
             {
                 MessageBox.Show("Login Berhasil", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
+                DashboarUser dashboarU = new DashboarUser();
+                dashboarU.Show();
             }
             else
             {
@@ -93,6 +95,13 @@ namespace Agromart
                 textUsername.Clear();
                 textPassword.Clear();
             }
+        }
+
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formRegister register = new formRegister();
+            register.Show();
+            this.Hide();
         }
     }
 }
