@@ -98,7 +98,7 @@
             // 
             // buttonLogin
             // 
-            buttonLogin.Location = new Point(476, 331);
+            buttonLogin.Location = new Point(502, 331);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(112, 34);
             buttonLogin.TabIndex = 7;

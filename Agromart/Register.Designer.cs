@@ -42,7 +42,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 20);
+            label1.Location = new Point(471, 116);
             label1.Name = "label1";
             label1.Size = new Size(109, 32);
             label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 72);
+            label2.Location = new Point(449, 162);
             label2.Name = "label2";
             label2.Size = new Size(91, 25);
             label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // textUser
             // 
-            textUser.Location = new Point(12, 100);
+            textUser.Location = new Point(449, 190);
             textUser.Name = "textUser";
             textUser.Size = new Size(150, 31);
             textUser.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // textPass
             // 
-            textPass.Location = new Point(12, 163);
+            textPass.Location = new Point(449, 253);
             textPass.Name = "textPass";
             textPass.Size = new Size(150, 31);
             textPass.TabIndex = 4;
@@ -76,7 +76,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 135);
+            label3.Location = new Point(449, 225);
             label3.Name = "label3";
             label3.Size = new Size(87, 25);
             label3.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // textTelepon
             // 
-            textTelepon.Location = new Point(12, 225);
+            textTelepon.Location = new Point(449, 315);
             textTelepon.Name = "textTelepon";
             textTelepon.Size = new Size(150, 31);
             textTelepon.TabIndex = 6;
@@ -94,7 +94,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 197);
+            label4.Location = new Point(449, 287);
             label4.Name = "label4";
             label4.Size = new Size(131, 25);
             label4.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(12, 276);
+            btnRegister.Location = new Point(468, 366);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(112, 34);
             btnRegister.TabIndex = 7;
@@ -115,7 +115,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(910, 383);
+            ClientSize = new Size(1049, 545);
             Controls.Add(btnRegister);
             Controls.Add(textTelepon);
             Controls.Add(label4);

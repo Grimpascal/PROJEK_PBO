@@ -49,7 +49,8 @@ namespace Agromart
             string username = textUser.Text;
             string password = textPass.Text;
             string no_telepon = textTelepon.Text;
-            string query = ("INSERT INTO users (username, password,no_telepon) VALUES (@username,@password,@no_telepon)");
+            string queryRegis = ("INSERT INTO users (username, password,no_telepon) VALUES (@username,@password,@no_telepon)");
+            string queryCheck = ("SELECT COUNT(*) FROM users WHERE username = @username");
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(no_telepon))
             {
@@ -76,19 +77,33 @@ namespace Agromart
                 try
                 {
                     conn.Open();
-                    using(NpgsqlCommand cmd =  new NpgsqlCommand(query, conn))
+                    using (NpgsqlCommand check = new NpgsqlCommand(queryCheck, conn))
+                    {
+                        check.Parameters.AddWithValue("@username", username);
+                        int checkUser = Convert.ToInt32(check.ExecuteScalar());
+
+                        if (checkUser > 0)
+                        {
+                            textUser.Clear();
+                            textPass.Clear();
+                            textTelepon.Clear();
+                            MessageBox.Show("Username sudah digunakan, gunakan username lain!");
+                            return;
+                        }
+                    }
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(queryRegis, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("password", password);
-                        cmd.Parameters.AddWithValue("@no_telepon", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+                        cmd.Parameters.AddWithValue("@no_telepon", no_telepon);
                         int result = cmd.ExecuteNonQuery();
                         if (result > 0)
                         {
-                            MessageBox.Show("Registrasi Berhasil","Notifikasi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            MessageBox.Show("Registrasi Berhasil", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Login login = new Login();
                             login.Show();
                             this.Hide();
-                        
+
                         }
                         else
                         {

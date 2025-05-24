@@ -1,5 +1,6 @@
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Text;
+using Agromart.Model;
 using Microsoft.VisualBasic.Logging;
 using Npgsql;
 
@@ -16,37 +17,6 @@ namespace Agromart
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private bool validasilogin(string username, string password)
-        {
-            string connDb = "Host=localhost;Username=postgres;Password=1;Database=Agromart";
-            string query = "SELECT user_id FROM users WHERE username = @username AND password = @password";
-
-            using (NpgsqlConnection conn = new NpgsqlConnection(connDb))
-            {
-                try
-                {
-                    conn.Open();
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
-                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi Error", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            return false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -81,7 +51,10 @@ namespace Agromart
             string username = textUsername.Text;
             string password = textPassword.Text;
 
-            if (validasilogin(username, password))
+            userContext userContext = new userContext();
+            bool isValid = userContext.validasilogin(username, password);
+
+            if (isValid)
             {
                 MessageBox.Show("Login Berhasil", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
